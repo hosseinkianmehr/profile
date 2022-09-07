@@ -15,6 +15,7 @@ import { createContext, useEffect, useMemo, useState } from 'react';
 import PropTypes from 'prop-types'
 import {Container, makeStyles} from '@mui/system';
 import Header from '../component/header/header';
+import Footer from "../component/footer/footer";
 const clientSideEmotionCache = createEmotionCache();
 
 export const primaryColortext = '#000000'
@@ -99,7 +100,7 @@ function MyApp({ Component, pageProps ,emotionCache = clientSideEmotionCache}) {
         <Component {...pageProps} />
           </Container>
         </div>
-        
+        <Footer/>
       </ThemeProvider>
     </CacheProvider>
   );
