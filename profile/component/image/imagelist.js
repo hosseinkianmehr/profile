@@ -9,7 +9,7 @@ export default function Imagelist() {
                 <ImageList variant="masonry" cols={3} gap={8}>
                     {itemData.map((item) => (
                         <ImageListItem key={item.img}>
-                            <Image src={item.img} alt={item.title} width={400} height={400} />
+                            <Image src={item.img} alt={item.title} width={item.cols == 2 ? 800:400} height={400} />
                         </ImageListItem>
                     ))}
                 </ImageList>
