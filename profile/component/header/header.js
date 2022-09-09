@@ -1,42 +1,6 @@
-import * as React from 'react';
-import { styled, alpha } from '@mui/material/styles';
-import AppBar from '@mui/material/AppBar';
-import Box from '@mui/material/Box';
-import Toolbar from '@mui/material/Toolbar';
-import IconButton from '@mui/material/IconButton';
-import Typography from '@mui/material/Typography';
-
+import { AppBar, Box, Button, ButtonGroup, Drawer, Grid, IconButton, Stack, Switch, Typography } from '@mui/material'
+import React from 'react'
 import MenuIcon from '@mui/icons-material/Menu';
-
-
-import Drawer from '@mui/material/Drawer';
-import List from '@mui/material/List';
-import Divider from '@mui/material/Divider';
-import ListItem from '@mui/material/ListItem';
-import ListItemIcon from '@mui/material/ListItemIcon';
-import ListItemText from '@mui/material/ListItemText';
-import InboxIcon from '@mui/icons-material/MoveToInbox';
-import MailIcon from '@mui/icons-material/Mail';
-
-
-import { Button, ButtonGroup, Switch, useScrollTrigger } from '@mui/material';
-import { palette } from '@mui/system';
-
-const Search = styled('div')(({ theme }) => ({
-  position: 'relative',
-  borderRadius: theme.shape.borderRadius,
-  backgroundColor: alpha(theme.palette.common.white, 0.15),
-  '&:hover': {
-    backgroundColor: alpha(theme.palette.common.white, 0.25),
-  },
-  marginRight: theme.spacing(2),
-  marginLeft: 0,
-  width: '100%',
-  [theme.breakpoints.up('sm')]: {
-    marginLeft: theme.spacing(3),
-    width: 'auto',
-  },
-}));
 
 export default function Header(props) {
   const { darkMode, setDarkMode } = props
@@ -90,70 +54,86 @@ export default function Header(props) {
 
     </div>
   );
-  //////////////////////////////////
   return (
-    
-    <Box sx={{ flexGrow: 1 }}>
-      <AppBar position="fixed" >
-        <Toolbar style={{ height: '70px' ,backgroundColor: '#rrr' }} disableGutters>
-
-          <Typography
-            variant="h3"
-            noWrap
-            component="div"
-            sx={{ display: { sm: 'block' } }}
-          >
-            Cheat Sheets
-          </Typography>
-
-          <Box sx={{ flexGrow: 1 }} />
-
-          <Switch
+    <>
+      <AppBar>
+        <Grid container>
+          
+          <Grid xs={4} sm={4} md={4} item 
+          style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
+            <Stack
+              direction="column"
+              justifyContent="center"
+              alignItems="center"
+              spacing={2}
+            >
+              <Switch
             checked={darkMode}
             onChange={toggleThemeColorChange}
             aria-label='dark mode switch'
           />
-
-          <Box sx={{ display: { xs: 'none', md: 'flex' } }} >
-            <Button style={{ height: '30px' }} >
-              <Typography onClick={() => { }} variant="h5">
-                خانه
-              </Typography>
-            </Button>
-            <Button style={{ height: '30px' }} >
-              <Typography onClick={() => { }} variant="h5">
-                تقلب ها
-              </Typography>
-            </Button>
-            <Button style={{ height: '30px' }} >
-              <Typography onClick={() => { }} variant="h5">
-                انجمن
-              </Typography>
-            </Button>
-            <Button style={{ height: '30px' }} >
-              <Typography onClick={() => { }} variant="h5">
-                درباره ی ما
-              </Typography>
-            </Button>
-          </Box>
-          <Box sx={{ display: { xs: 'flex', md: 'none' } }}>
-
-            <IconButton onClick={toggleDrawer(true)}><MenuIcon /></IconButton>
-            <Drawer
-              anchor={'right'}
-              open={state}
-              onClose={toggleDrawer(false)}
+            </Stack>
+          </Grid>
+          <Grid xs={4} sm={4} md={4} item>
+            <Stack
+              direction="column"
+              justifyContent="center"
+              alignItems="center"
+              spacing={2}
             >
-              {list()}
-            </Drawer>
+              <Typography variant='h3'>hello</Typography>
+            </Stack>
+
+          </Grid>
+          <Grid xs={4} sm={4} md={4} item
+          style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
+            <Stack
+              direction="row"
+              justifyContent="center"
+              alignItems="center"
+              spacing={2}
+            >
+              <Box sx={{ display: { xs: 'none', md: 'flex' } }} >
+                <Button style={{ height: '30px' }} >
+                  <Typography onClick={() => { }} variant="h5">
+                    خانه
+                  </Typography>
+                </Button>
+                <Button style={{ height: '30px' }} >
+                  <Typography onClick={() => { }} variant="h5">
+                    تقلب ها
+                  </Typography>
+                </Button>
+                <Button style={{ height: '30px' }} >
+                  <Typography onClick={() => { }} variant="h5">
+                    انجمن
+                  </Typography>
+                </Button>
+                <Button style={{ height: '30px' }} >
+                  <Typography onClick={() => { }} variant="h5">
+                    درباره ی ما
+                  </Typography>
+                </Button>
+              </Box>
+              <Box sx={{ display: { xs: 'flex', md: 'none' } }}>
+
+                <IconButton onClick={toggleDrawer(true)}><MenuIcon /></IconButton>
+                <Drawer
+                  anchor={'right'}
+                  open={state}
+                  onClose={toggleDrawer(false)}
+                >
+                  {list()}
+                </Drawer>
 
 
-          </Box>
-        </Toolbar>
+              </Box>
+            </Stack>
+          </Grid>
+        </Grid>
+
+
       </AppBar>
-
-
-    </Box>
-    
-  );
+    </>
+  )
 }

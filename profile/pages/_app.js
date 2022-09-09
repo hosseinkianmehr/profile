@@ -8,9 +8,7 @@ import "swiper/css/navigation";
 import { CacheProvider } from '@emotion/react';
 import { ThemeProvider, CssBaseline, createTheme, useMediaQuery, Switch} from '@mui/material';
 import createEmotionCache from '../utility/createEmotionCache';
-import lightTheme from '../styles/theme/lightTheme';
-import Theme from '../styles/Theme/Theme';
-import DarkTheme from '../styles/theme/DarkTheme';
+
 import { createContext, useEffect, useMemo, useState } from 'react';
 import PropTypes from 'prop-types'
 import {Container, makeStyles} from '@mui/system';
