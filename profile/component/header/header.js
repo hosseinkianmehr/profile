@@ -1,7 +1,7 @@
-import { AppBar, Box, Button, ButtonGroup, Divider, Drawer, Grid, IconButton, List, ListItem, ListItemText, Stack, Switch, Typography } from '@mui/material'
+import { AppBar, Box, Button, Divider, Drawer, Grid, IconButton, List, ListItem, ListItemText, Stack, Switch, Typography } from '@mui/material'
 import React from 'react'
 import MenuIcon from '@mui/icons-material/Menu';
-
+import Link from 'next/link'
 export default function Header(props) {
   const { darkMode, setDarkMode } = props
 
@@ -32,21 +32,24 @@ export default function Header(props) {
       onKeyDown={toggleDrawer(false)}
     >
       <List sx={style} component="nav" aria-label="mailbox folders">
-      <ListItem button>
-        <ListItemText primary="Inbox" />
-      </ListItem>
-      <Divider />
-      <ListItem button divider>
-        <ListItemText primary="Drafts" />
-      </ListItem>
-      <ListItem button>
-        <ListItemText primary="Trash" />
-      </ListItem>
-      <Divider light />
-      <ListItem button>
-        <ListItemText primary="Spam" />
-      </ListItem>
-    </List>
+        <Link href="/">
+          <ListItem button>
+            <ListItemText primary="Home" />
+          </ListItem>
+        </Link>
+        <Divider />
+        <Link href="/image">
+        <ListItem button divider>
+          <ListItemText primary="Photo" />
+        </ListItem>
+        </Link>
+        <Link href="/abute">
+        <ListItem button>
+          <ListItemText primary="Abute" />
+        </ListItem>
+        </Link>
+        
+      </List>
     </Box>
   );
 
@@ -70,9 +73,9 @@ export default function Header(props) {
     <>
       <AppBar>
         <Grid container>
-          
-          <Grid xs={4} sm={4} md={4} item 
-          style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
+
+          <Grid xs={4} sm={4} md={4} item
+            style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
             <Stack
               direction="column"
               justifyContent="center"
@@ -80,10 +83,10 @@ export default function Header(props) {
               spacing={2}
             >
               <Switch
-            checked={darkMode}
-            onChange={toggleThemeColorChange}
-            aria-label='dark mode switch'
-          />
+                checked={darkMode}
+                onChange={toggleThemeColorChange}
+                aria-label='dark mode switch'
+              />
             </Stack>
           </Grid>
           <Grid xs={4} sm={4} md={4} item>
@@ -98,7 +101,7 @@ export default function Header(props) {
 
           </Grid>
           <Grid xs={4} sm={4} md={4} item
-          style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
+            style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
             <Stack
               direction="row"
               justifyContent="center"
@@ -106,29 +109,30 @@ export default function Header(props) {
               spacing={2}
             >
               <Box sx={{ display: { xs: 'none', md: 'flex' } }} >
-                <Button style={{ height: '30px' }} >
-                  <Typography onClick={() => { }} variant="h5">
-                    خانه
-                  </Typography>
-                </Button>
-                <Button style={{ height: '30px' }} >
-                  <Typography onClick={() => { }} variant="h5">
-                    تقلب ها
-                  </Typography>
-                </Button>
-                <Button style={{ height: '30px' }} >
-                  <Typography onClick={() => { }} variant="h5">
-                    انجمن
-                  </Typography>
-                </Button>
-                <Button style={{ height: '30px' }} >
-                  <Typography onClick={() => { }} variant="h5">
-                    درباره ی ما
-                  </Typography>
-                </Button>
+                <Link href="/">
+                  <Button style={{ height: '30px' }} >
+                    <Typography onClick={() => { }} variant="h5">
+                      Home
+                    </Typography>
+                  </Button>
+                </Link>
+                <Link href="/image">
+                  <Button style={{ height: '30px' }} >
+                    <Typography onClick={() => { }} variant="h5">
+                      Photo
+                    </Typography>
+                  </Button>
+                </Link>
+                <Link href="/abute">
+                  <Button style={{ height: '30px' }} >
+                    <Typography onClick={() => { }} variant="h5">
+                      Abute
+                    </Typography>
+                  </Button>
+                </Link>
               </Box>
-              <Box sx={{ display: { xs: 'flex', md: 'none' } }}>
 
+              <Box sx={{ display: { xs: 'flex', md: 'none' } }}>
                 <IconButton onClick={toggleDrawer(true)}><MenuIcon /></IconButton>
                 <Drawer
                   anchor={'right'}

@@ -4,6 +4,10 @@ import React from 'react'
 import NestedList from './list'
 import BeachAccessIcon from '@mui/icons-material/BeachAccess';
 
+import GitHubIcon from '@mui/icons-material/GitHub';
+import LinkedInIcon from '@mui/icons-material/LinkedIn';
+import TwitterIcon from '@mui/icons-material/Twitter';
+
 export default function Footer() {
     return (
         <Container>
@@ -25,9 +29,9 @@ export default function Footer() {
                 <Grid xs={12} sm={6} md={6} item style={{display: 'flex', justifyContent: 'center', alignItems: 'center' , marginBlock:30}}>
 
                     <Stack direction="row" spacing={2} >
-                        <Avatar alt="Remy Sharp" />
-                        <Avatar alt="Travis Howard" />
-                        <Avatar alt="Cindy Baker" />
+                        <GitHubIcon style={{height:50 ,width:50 }}/>
+                        <LinkedInIcon style={{height:50 ,width:50}}/>
+                        <TwitterIcon style={{height:50 ,width:50}}/>
                     </Stack>
 
                 </Grid>
