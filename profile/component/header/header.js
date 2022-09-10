@@ -1,4 +1,4 @@
-import { AppBar, Box, Button, ButtonGroup, Drawer, Grid, IconButton, Stack, Switch, Typography } from '@mui/material'
+import { AppBar, Box, Button, ButtonGroup, Divider, Drawer, Grid, IconButton, List, ListItem, ListItemText, Stack, Switch, Typography } from '@mui/material'
 import React from 'react'
 import MenuIcon from '@mui/icons-material/Menu';
 
@@ -19,22 +19,34 @@ export default function Header(props) {
 
     setState(open);
   };
-
+  const style = {
+    width: '100%',
+    maxWidth: 360,
+    bgcolor: 'background.paper',
+  };
   const list = () => (
     <Box
-      sx={{ width: 250 }}
+      sx={{ width: 200 }}
       role="presentation"
       onClick={toggleDrawer(false)}
       onKeyDown={toggleDrawer(false)}
     >
-      <ButtonGroup
-        orientation="vertical"
-        aria-label="vertical outlined button group"
-      >
-        <Button key="one">One</Button>
-        <Button key="two">Two</Button>
-        <Button key="three">Three</Button>
-      </ButtonGroup>
+      <List sx={style} component="nav" aria-label="mailbox folders">
+      <ListItem button>
+        <ListItemText primary="Inbox" />
+      </ListItem>
+      <Divider />
+      <ListItem button divider>
+        <ListItemText primary="Drafts" />
+      </ListItem>
+      <ListItem button>
+        <ListItemText primary="Trash" />
+      </ListItem>
+      <Divider light />
+      <ListItem button>
+        <ListItemText primary="Spam" />
+      </ListItem>
+    </List>
     </Box>
   );
 
