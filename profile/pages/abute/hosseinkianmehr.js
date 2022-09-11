@@ -2,6 +2,7 @@ import { Avatar, Box, Chip, Divider, Grid, Typography } from '@mui/material'
 import Image from 'next/image'
 import React from 'react'
 import CardEvidence from '../../component/abute/card'
+import MyProjects from '../../component/home/myProjects'
 
 
 export default function index() {
@@ -67,6 +68,12 @@ export default function index() {
             </Divider>
                 
             <CardEvidence/>
+            <Divider style={{ marginBlock: 30, marginTop: 30 }}>
+                <Chip label={
+                    <Typography variant='h5'>Work</Typography>
+                } />
+            </Divider>
+            <MyProjects/>
         </>
     )
 }
