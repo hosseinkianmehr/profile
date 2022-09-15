@@ -4,8 +4,11 @@ import Boxpage from '../component/home/img/imagelist'
 import MyProjects from '../component/home/myProjects'
 import Welcomeslide from '../component/home/welcomeslide'
 
+import axios from "axios";
 
-export default function Home() {
+
+export default function Home({posts}) {
+  console.log(posts)
   return (
     < >
       <Welcomeslide />
@@ -14,14 +17,26 @@ export default function Home() {
           <Typography variant='h5'>Photo</Typography>
         } />
       </Divider>
-      <TitlebarImageList />
+      <TitlebarImageList photo={posts}/>
       <Divider style={{ marginBlock: 30 , marginTop: 30 }}>
         <Chip label={
           <Typography variant='h5'>work</Typography>
         } />
       </Divider>
-      <MyProjects />
+      
 
     </>
   )
+}
+
+
+
+export async function getStaticProps() {
+  const response = await axios.get(`http://localhost:3000/api/home/photo`);
+  
+  return {
+    props: {
+      posts: response.data,
+    },
+  };
 }
