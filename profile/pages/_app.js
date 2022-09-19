@@ -14,34 +14,31 @@ import PropTypes from 'prop-types'
 import {Container, makeStyles} from '@mui/system';
 import Header from '../component/header/header';
 import Footer from "../component/footer/footer";
+
 const clientSideEmotionCache = createEmotionCache();
-
-export const primaryColortext = '#000000'
-export const secondaryColortext = '#ff9100'
-
 
 function MyApp({ Component, pageProps ,emotionCache = clientSideEmotionCache}) {
 
   const prefersDarkMode = useMediaQuery('(prefers-color-scheme: dark)')
 
 
-  const [darkMode, setDarkMode] = useState(true)
-  const handleDarkMode = darkMode ? secondaryColortext : primaryColortext
-
+  const [darkMode, setDarkMode] = useState(false)
+  const handleDarkMode = darkMode ? '#FFC045' : '#354259'
+  const handleDarkModebodey = darkMode ? '#ffffff' : '#000000'
   const theme = useMemo(
     () =>
       createTheme({
         
         themeName: 'greenOrange',
         palette: {
-          primary: { main: (darkMode ? '#999989' : '#8bb1b7'), },
+          primary: { main: (darkMode ? '#0C2233' : '#CDF0EA'), },
           
           ///
           error: {
             main: "#fea82f",
           },
           background: {
-            default: (darkMode ? '#55675f' : '#a8bdbb'),
+            default: (darkMode ? '#065471' : '#F9F9F9'),
           },
           ///////
          
@@ -67,14 +64,26 @@ function MyApp({ Component, pageProps ,emotionCache = clientSideEmotionCache}) {
             fontFamily: 'Calistoga',
             color: handleDarkMode,
           },
+          h6: {
+            fontFamily: 'Calistoga',
+            color: handleDarkMode,
+          },
           body2: {
             fontFamily: '"Roboto Slab", "Courier New", "serif"', // Main body text
             fontSize: '1rem',
             fontWeight: 400,
             letterSpacing: '0.00938em',
             lineHeight: 1.5,
+            color: handleDarkModebodey,
           },
-          
+          body1: {
+            fontFamily: '"Roboto Slab", "Courier New", "serif"', // Main body text
+            fontSize: '1rem',
+            fontWeight: 400,
+            letterSpacing: '0.00938em',
+            lineHeight: 1.5,
+            color: handleDarkModebodey,
+          },
         },
       }),
     [darkMode]
@@ -85,7 +94,7 @@ function MyApp({ Component, pageProps ,emotionCache = clientSideEmotionCache}) {
 
   // Checks user settings for dark mode preference
   useEffect(() => {
-    prefersDarkMode ? setDarkMode(true) : setDarkMode(false)
+    prefersDarkMode ? setDarkMode(false) : setDarkMode(true)
   }, [prefersDarkMode])
  
   return (

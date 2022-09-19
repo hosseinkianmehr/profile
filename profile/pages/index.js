@@ -17,13 +17,13 @@ export default function Home({posts}) {
           <Typography variant='h5'>Photo</Typography>
         } />
       </Divider>
-      <TitlebarImageList photo={posts}/>
+      <TitlebarImageList photo={posts.image}/>
       <Divider style={{ marginBlock: 30 , marginTop: 30 }}>
         <Chip label={
           <Typography variant='h5'>work</Typography>
         } />
       </Divider>
-      
+      <MyProjects post={posts.projects}/>
 
     </>
   )
