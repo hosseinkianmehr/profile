@@ -2,7 +2,7 @@ import { AppBar, Box, Button, Divider, Drawer, FormControlLabel, Grid, IconButto
 import React from 'react'
 import MenuIcon from '@mui/icons-material/Menu';
 import Link from 'next/link'
-import { styled } from '@mui/material/styles';
+import { styled, useTheme } from '@mui/material/styles';
 
 const MaterialUISwitch = styled(Switch)(({ theme }) => ({
   width: 62,
@@ -53,7 +53,7 @@ const MaterialUISwitch = styled(Switch)(({ theme }) => ({
 
 export default function Header(props) {
   const { darkMode, setDarkMode } = props
-
+  const theme = useTheme()
   const toggleThemeColorChange = event => {
     setDarkMode(event.target.checked)
   }
@@ -68,19 +68,16 @@ export default function Header(props) {
 
     setState(open);
   };
-  const style = {
-    width: '100%',
-    maxWidth: 360,
-    bgcolor: 'background.paper',
-  };
+  
   const list = () => (
     <Box
-      sx={{ width: 200 }}
+      sx={{ width: 150,height:1000000 }}
       role="presentation"
       onClick={toggleDrawer(false)}
       onKeyDown={toggleDrawer(false)}
+      style={{backgroundColor: theme.palette.primary.main}}
     >
-      <List sx={style} component="nav" aria-label="mailbox folders">
+      <List sx={{width:'100%', maxWidth: 360}} component="nav" aria-label="mailbox folders" >
         <Link href="/">
           <ListItem button>
             <ListItemText primary="Home" />
@@ -102,22 +99,7 @@ export default function Header(props) {
     </Box>
   );
 
-  const drawerButten = (
-    <div>
-
-      <React.Fragment >
-        <IconButton onClick={toggleDrawer(true)}><MenuIcon /></IconButton>
-        <Drawer
-          anchor={'right'}
-          open={state}
-          onClose={toggleDrawer(false)}
-        >
-          {list()}
-        </Drawer>
-      </React.Fragment>
-
-    </div>
-  );
+  
   return (
     <>
       <AppBar>
