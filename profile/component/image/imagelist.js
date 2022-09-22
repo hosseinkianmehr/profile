@@ -2,12 +2,10 @@ import { Box, ImageList, ImageListItem, useMediaQuery, useTheme } from '@mui/mat
 import Image from 'next/image';
 import React, { useEffect, useState } from 'react'
 
-export default function Imagelist() {
+export default function Imagelist({posts}) {
     const theme = useTheme()
     const isTinyScreen = useMediaQuery(theme.breakpoints.down('md'))
     const isTinyScreenSM = useMediaQuery(theme.breakpoints.down('sm'))
-    console.log(isTinyScreen,'isTinyScreen')
-    console.log(isTinyScreenSM,'isTinyScreenSM')
 
     const [col, setcol] = useState(3)
     useEffect(() => {
@@ -16,15 +14,13 @@ export default function Imagelist() {
         else if (isTinyScreenSM == false & isTinyScreenSM == false) { setcol(3) }
     }, [isTinyScreenSM,isTinyScreen])
 
-
-
     return (
         <div>
             <Box >
                 <ImageList variant="masonry" cols={col} gap={10}>
-                    {itemData.map((item) => (
+                    {posts.image.map((item) => (
                         <ImageListItem key={item.img}>
-                            <Image src={item.img} alt={item.title} width={item.cols == 2 ? 1200 : 800} height={800} />
+                            <Image src={item.img} alt={item.title} width={item.Horizontal ? 1200 : 800} height={800} />
                         </ImageListItem>
                     ))}
                 </ImageList>
@@ -36,37 +32,39 @@ const itemData = [
     {
         img: '/image/1.jpg',
         title: 'Breakfast',
-        rows: 2,
-        cols: 2,
+        Horizontal: false,
+        
     },
     {
         img: '/image/2.jpg',
         title: 'Burger',
+        Horizontal: true,
     },
     {
         img: '/image/3.jpg',
         title: 'Camera',
+        Horizontal: true,
     },
     {
         img: '/image/4.jpg',
         title: 'Coffee',
-        cols: 2,
+        Horizontal: false,
     },
     {
         img: '/image/5.jpg',
         title: 'Hats',
-        cols: 2,
+        Horizontal: true,
     },
     {
         img: '/image/6.jpg',
         title: 'Honey',
         author: '@arwinneil',
-        rows: 2,
-        cols: 2,
+        Horizontal: false,
     },
     {
         img: '/image/7.jpg',
         title: 'Basketball',
+        Horizontal: true,
     },
 
 ];
