@@ -175,8 +175,6 @@ export default function Header(props) {
                 >
                   {list()}
                 </Drawer>
-
-
               </Box>
             </Stack>
           </Grid>

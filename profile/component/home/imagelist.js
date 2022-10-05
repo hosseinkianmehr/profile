@@ -26,7 +26,7 @@ export default function TitlebarImageList({photo}) {
     <ImageList cols={col} >
       
       {photo.map((item, index) => (
-        <ImageListItem key={item.index}>
+        <ImageListItem key={index}>
           <Image  src={item.img} height={500} width={500} />
           <ImageListItemBar
             title={item.title}
