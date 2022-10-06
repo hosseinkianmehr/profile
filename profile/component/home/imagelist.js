@@ -5,8 +5,8 @@ import ImageListItemBar from '@mui/material/ImageListItemBar';
 import ListSubheader from '@mui/material/ListSubheader';
 import IconButton from '@mui/material/IconButton';
 import InfoIcon from '@mui/icons-material/Info';
-import { useTheme } from '@mui/system';
-import { useMediaQuery } from '@mui/material';
+
+import { useMediaQuery, useTheme } from '@mui/material';
 import Image from 'next/image';
 
 
